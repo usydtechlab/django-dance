@@ -32,3 +32,17 @@ docker-compose up
 ```bash
 docker-compose down
 ```
+
+## Django REST framework
+
+https://www.django-rest-framework.org/
+
+## AWS auth backend for Django REST framework for AWS Cognito JWT tokens
+
+https://github.com/LabD/django-cognito-jwt
+
+## Other best practices
+
+- Docker how to run pip requirements.txt only if there was a change?
+
+https://stackoverflow.com/questions/34398632/docker-how-to-run-pip-requirements-txt-only-if-there-was-a-change
