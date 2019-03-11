@@ -1,8 +1,18 @@
-version: '3'
+version: '3.2'
 
 services:
   db:
-    image: mysql
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_DATABASE=ebarq_test
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    ports:
+      - '3306:3306' # Opens port 3306 on the container
+    expose:
+      - '3306'
+    volumes:
+      - my-db:/var/lib/mysql
   web:
     build: .
     command: python manage.py runserver 0.0.0.0:8000
@@ -12,3 +22,7 @@ services:
       - "8000:8000"
     depends_on:
       - db
+
+# Names the volume
+volumes:
+  my-db:
