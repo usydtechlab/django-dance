@@ -15,10 +15,28 @@ sudo lsof -i -P -n | grep 3306
 - For Mac: `kill -9 <process id>`
 - For Linux: `sudo kill <process id>`
 
-### Create a Django project
+### Create a Django project (NOT for deployment)
 
 ```bash
-sudo docker-compose run web django-admin startproject CognitoExample .
+sudo docker-compose run web django-admin startproject api .
+```
+
+```bash
+sudo docker-compose run web python manage.py startapp app
+```
+
+```bash
+sudo docker-compose run web python manage.py migrate
+sudo docker-compose run web python manage.py createsuperuser --email techlab@sydney.edu.au --username techlab
+```
+
+```bash
+sudo docker-compose run web python manage.py makemigrations
+sudo docker-compose run web python manage.py migrate
+```
+
+```bash
+sudo docker-compose run web python manage.py test
 ```
 
 ### Start the initiated Django project
