@@ -1,4 +1,4 @@
-"""api URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include, re_path
+from rest_framework.authtoken import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # ex: /app/
     path('', include('app.urls')),
-    re_path('api/(?P<version>(v1|v2))/', include('app.urls'))
+    path('admin/', admin.site.urls),
+    #ex: /mysite/v1/songs/
+    re_path('mysite/(?P<version>(v1|v2))/', include('app.urls')),
+    path('api-token-auth/', views.obtain_auth_token),
 ]

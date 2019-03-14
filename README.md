@@ -18,7 +18,7 @@ sudo lsof -i -P -n | grep 3306
 ### Create a Django project (NOT for deployment)
 
 ```bash
-sudo docker-compose run web django-admin startproject api .
+sudo docker-compose run web django-admin startproject mysite .
 ```
 
 ```bash
